@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeric's Sneaker Store</title>
+    <style>
+        /* General body styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: green;
+            transition: background-color 2s ease;
+        }
+
+        /* Header section */
+        header {
+            background-color: green;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem; /* Reduced font size */
+            margin-bottom: 5px; /* Smaller margin */
+        }
+
+        header p {
+            font-size: 1rem; /* Reduced font size */
+            margin-top: 0;
+        }
+
+        /* Navbar Style */
+        nav {
+            background-color: green; /* Dark gray-blue */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+       
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li a:hover {
+            color: #ff9900;
+        }
+
+        /* Main content */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            margin-top: 20px; /* Space between header and carousel */
+        }
+        #outerbox {
+            overflow: hidden;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            width: 450px;
+            margin: 50px auto;
+        }
+        #sliderbox {
+            position: relative;
+            display: flex;
+            width: 500px;
+            height: 450px;
+            animation: slider 16s infinite;
+            background-color: aliceblue;
+        }
+
+        @keyframes slider {
+
+            0%,
+            10% {
+                left: 0;
+            }
+
+            12.5%,
+            22.5% {
+                left: -400px;
+            }
+
+            25%,
+            35% {
+                left: -750px;
+            }
+
+            37.5%,
+            47.5% {
+                left: -1160px;
+            }
+
+            50%,
+            60% {
+                left: -1600px;
+            }
+
+            62.5%,
+            72.5% {
+                left: -2050px;
+            }
+
+            75%,
+            85% {
+                left: -2450px;
+            }
+
+            87.5%,
+            96.5% {
+                left: -3150px;
+            }
+
+            100% {
+                left: -3600px;
+            }
+        }
+
+        #sliderbox img {
+            width: 450px;
+            height: 450px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Jeric's Sneaker Store</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Product.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Login.html">Log-in</a></li>
+                <li><a href="Cart.html">Cart</a></li>
+                <li><a href="Checkout.html">Check Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       <!-- Main content -->
+       <div id="outerbox">
+        <div id="sliderbox">
+            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a73ec239af2e43d690e0ad4700a3c2dd_9366/NMD_R1_Shoes_White_GZ9259_01_standard.jpg"/>
+            <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png"/>
+            <img src="https://www.trafficfootwear.com.ph/cdn/shop/products/Old-Skool-Canvas_Black_1_9d6b82bf-4e60-422d-81fe-59090d3b8b9c_768x1024.jpg?v=1592678420"/>
+            <img src="https://www.capital.com.ph/cdn/shop/products/VN0007NT2VZ.jpg?v=1686906046"/>
+            <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_450,h_450/global/374915/01/sv01/fnd/PHL/fmt/png"/>
+            <img src="https://www.urbanathletics.com.ph/cdn/shop/files/DX4259-100-A.jpg?v=1707292020"/>
+            <img src="https://cdn-images.farfetch-contents.com/17/93/45/68/17934568_37998769_600.jpg"/>
+            <img src="https://underarmour.scene7.com/is/image/Underarmour/3024883-001_DEFAULT?rp=standard-30pad|pdpZoomDesktop&scl=0.50&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=850,850"/>
+            <img src="https://www.therail.com.ph/cdn/shop/files/VANSSk8-HiSneakers-Black_WOMENS_900x.jpg?v=1686275981"/>
+            <img src="https://puresoles.ph/cdn/shop/products/img01_34.jpg?v=1620213637"/>
+        </div>
+
+    </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="#contact">Contact</a>
+         
+        </div>
+        <div class="social-media">
+            <a href="#instagram">Instagram</a>
+            <a href="#facebook">Facebook</a>
+        </div>
+       
+    </footer>
+
+    <script>
+        // Simple carousel functionality
+        const carousels = document.querySelectorAll('.carousel');
+
+        carousels.forEach(carousel => {
+            let currentIndex = 0;
+            const items = carousel.querySelectorAll('.carousel-items');
+            const totalItems = items.length;
+
+            items[currentIndex].classList.add('active');
+
+            setInterval(() => {
+                items[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % totalItems;
+                items[currentIndex].classList.add('active');
+            }, 3000); // Change every 3 seconds
+        });
+    </script>
+</body>
+</html>
