@@ -282,60 +282,61 @@
     { id: 30, title: "Reebok Nano X", price: 149.99, description: "Versatile training shoe designed for all types of workouts.", image: "https://tse1.mm.bing.net/th?id=OIP.5Tdw2IentQHtYSmLMrL0NgHaHa&pid=Api&P=0&h=180" }
 ];
 
-        const productGrid = document.getElementById('productGrid');
-        const detailView = document.getElementById('detailView');
-        const detailTitle = document.getElementById('detailTitle');
-        const detailPrice = document.getElementById('detailPrice');
-        const detailDescription = document.getElementById('detailDescription');
-        const detailImage = document.getElementById('detailImage');
-        const buyButton = document.getElementById('buyButton');
-        const addToCartButton = document.getElementById('addToCartButton');
-        const backToProductsButton = document.getElementById('backToProductsButton');
+const productsContainer = document.getElementById("productGrid");
+    const detailView = document.getElementById("detailView");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailImage = document.getElementById("detailImage");
+    const detailPrice = document.getElementById("detailPrice");
+    const detailDescription = document.getElementById("detailDescription");
+    const sizeOptions = document.getElementById("sizeOptions");
+    const backToProductsButton = document.getElementById("backToProductsButton");
+    const gallery = document.querySelector(".gallery");
 
-        let cart = [];
-
-        function createProductCard(product) {
-            const card = document.createElement('div');
-            card.classList.add('product');
-            card.innerHTML = `
+    // Function to render products
+    function renderProducts() {
+        products.forEach(product => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("product");
+            productElement.innerHTML = `
                 <img src="${product.image}" alt="${product.title}">
                 <h3>${product.title}</h3>
                 <p class="price">$${product.price.toFixed(2)}</p>
                 <p class="description">${product.description}</p>
             `;
-            card.onclick = () => showProductDetail(product);
-            productGrid.appendChild(card);
-        }
+            productElement.addEventListener("click", () => showProductDetail(product));
+            productsContainer.appendChild(productElement);
+        });
+    }
 
-        function showProductDetail(product) {
-            detailTitle.textContent = product.title;
-            detailPrice.textContent = `$${product.price.toFixed(2)}`;
-            detailDescription.textContent = product.description;
-            detailImage.src = product.image;
+    // Function to show product details
+    function showProductDetail(product) {
+        gallery.style.display = "none"; // Hide the carousel
+        detailView.style.display = "block";
+        productsContainer.style.display = "none"; // Hide the product grid
+        detailTitle.textContent = product.title;
+        detailImage.src = product.image;
+        detailPrice.textContent = `$${product.price.toFixed(2)}`;
+        detailDescription.textContent = product.description;
 
-            detailView.style.display = "block";
-            productGrid.style.display = "none"; // Hide product grid
+        // Populate size options
+        sizeOptions.innerHTML = ""; // Clear previous options
+        product.sizes.forEach(size => {
+            const sizeOption = document.createElement("option");
+            sizeOption.value = size;
+            sizeOption.textContent = size;
+            sizeOptions.appendChild(sizeOption);
+        });
+    }
 
-            buyButton.onclick = () => buyNow(product);
-            addToCartButton.onclick = () => addToCart(product);
-        }
+    // Function to go back to the product grid
+    backToProductsButton.addEventListener("click", () => {
+        gallery.style.display = "block"; // Show the carousel
+        detailView.style.display = "none";
+        productsContainer.style.display = "grid"; // Show the product grid
+    });
 
-        function addToCart(product) {
-            cart.push(product);
-            alert(`${product.title} has been added to your cart!`);
-        }
-
-        function buyNow(product) {
-            alert(`Proceeding to buy ${product.title} for $${product.price.toFixed(2)}.`);
-        }
-
-        backToProductsButton.onclick = () => {
-            detailView.style.display = "none";
-            productGrid.style.display = "grid"; // Show product grid again
-        };
-
-        products.forEach(createProductCard);
-		
+    // Initial render of products
+    renderProducts();
     </script>
 </body>
 </html>
